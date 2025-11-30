@@ -3,6 +3,7 @@ data/*.csv
 !data/*_sample.csv
 !data/exoplanets_trimmed.csv
 !data/exoplanets_clean.csv
+!data/comets_clean.csv
 
 # Ignore environment and caches
 .venv/
