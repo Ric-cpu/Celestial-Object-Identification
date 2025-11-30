@@ -1,6 +1,7 @@
 # Ignore ALL CSVs in data except sample files
 data/*.csv
 !data/*_sample.csv
+!data/exoplanets_trimmed.csv
 
 # Ignore environment and caches
 .venv/
