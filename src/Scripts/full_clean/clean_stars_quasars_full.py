@@ -1,5 +1,5 @@
 """
-Clean the full stars and blackholes Gaia catalogs.
+Clean the full stars and quasars Gaia catalogs.
 
 Steps:
 - Read the raw CSVs from data/full.
@@ -27,13 +27,13 @@ STAR_FEATURES = [
     "bp_rp",
 ]
 
-# Blackholes have a superset; align to these plus ruwe/quasar_probability if present
-BH_EXTRA = ["ruwe", "quasar_probability"]
+# Quasars have a superset; align to these plus ruwe/quasar_probability if present
+QUASAR_EXTRA = ["ruwe", "quasar_probability"]
 
 
 def parse_args() -> argparse.Namespace:
     repo_root = Path(__file__).resolve().parents[2]
-    parser = argparse.ArgumentParser(description="Clean stars and blackholes Gaia catalogs")
+    parser = argparse.ArgumentParser(description="Clean stars and quasars Gaia catalogs")
     parser.add_argument(
         "--stars-input",
         type=Path,
@@ -41,10 +41,10 @@ def parse_args() -> argparse.Namespace:
         help="Path to raw stars Gaia CSV",
     )
     parser.add_argument(
-        "--bh-input",
+        "--quasars-input",
         type=Path,
-        default=repo_root / "data/full/blackholes_gaia.csv",
-        help="Path to raw blackholes Gaia CSV",
+        default=repo_root / "data/full/quasars_gaia.csv",
+        help="Path to raw quasars Gaia CSV",
     )
     parser.add_argument(
         "--stars-output",
@@ -53,10 +53,10 @@ def parse_args() -> argparse.Namespace:
         help="Path to cleaned stars CSV",
     )
     parser.add_argument(
-        "--bh-output",
+        "--quasars-output",
         type=Path,
-        default=repo_root / "data/full/blackholes_gaia_clean.csv",
-        help="Path to cleaned blackholes CSV",
+        default=repo_root / "data/full/quasars_gaia_clean.csv",
+        help="Path to cleaned quasars CSV",
     )
     return parser.parse_args()
 
@@ -69,8 +69,8 @@ def clean_stars(df: pd.DataFrame) -> pd.DataFrame:
     return df.dropna()
 
 
-def clean_blackholes(df: pd.DataFrame) -> pd.DataFrame:
-    keep = STAR_FEATURES + [c for c in BH_EXTRA if c in df.columns]
+def clean_quasars(df: pd.DataFrame) -> pd.DataFrame:
+    keep = STAR_FEATURES + [c for c in QUASAR_EXTRA if c in df.columns]
     df = df[keep].copy()
     num_cols = [c for c in df.columns if c != "source_id"]
     for col in num_cols:
@@ -83,18 +83,18 @@ def main() -> None:
     args = parse_args()
 
     stars = pd.read_csv(args.stars_input)
-    bh = pd.read_csv(args.bh_input)
+    quasars = pd.read_csv(args.quasars_input)
 
     stars_clean = clean_stars(stars)
-    bh_clean = clean_blackholes(bh)
+    quasars_clean = clean_quasars(quasars)
 
     args.stars_output.parent.mkdir(parents=True, exist_ok=True)
     stars_clean.to_csv(args.stars_output, index=False)
-    bh_clean.to_csv(args.bh_output, index=False)
+    quasars_clean.to_csv(args.quasars_output, index=False)
 
     print(
         f"Saved {args.stars_output} (rows={len(stars_clean)}, cols={stars_clean.shape[1]}); "
-        f"{args.bh_output} (rows={len(bh_clean)}, cols={bh_clean.shape[1]})"
+        f"{args.quasars_output} (rows={len(quasars_clean)}, cols={quasars_clean.shape[1]})"
     )
 
 

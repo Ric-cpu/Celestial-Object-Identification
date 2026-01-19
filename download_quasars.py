@@ -1,6 +1,11 @@
 from astroquery.gaia import Gaia
 import pandas as pd
 
+# Optional: if the Gaia archive requires login, uncomment and set your credentials.
+# Gaia.login(user="your_email_or_username", password="your_password")
+
+Gaia.ROW_LIMIT = 50000   # set a size you want, or -1 for “all”
+
 query = """
 SELECT
     agn.source_id,
@@ -22,15 +27,12 @@ JOIN gaiadr3.gaia_source AS gs
 ON agn.source_id = gs.source_id
 """
 
-#Run the Gaia query (sync endpoint is more stable for small result sets)
-job = Gaia.launch_job(query)
-result = job.get_results()
+print("Launching Gaia async job...")
+job = Gaia.launch_job_async(query)  # async for bigger pulls
+print(f"Job ID: {job.jobid}")
+df = job.get_results().to_pandas()
 
-#Convert to pandas DataFrame
-df = result.to_pandas()
+df.to_csv("data/full/quasars_gaia.csv", index=False)
+print("Saved", "data/full/quasars_gaia.csv")
 
-#Save to CSV
-output_path = "data/blackholes_gaia.csv"
-df.to_csv(output_path, index=False)
-print("Saved", output_path)
-
+# Gaia.logout()
