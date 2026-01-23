@@ -26,9 +26,10 @@ REQUIRED_COLS = [
 OPTIONAL_RENAMES = {
     "sy_pmra": "pmra",
     "sy_pmdec": "pmdec",
-    "sy_gmag": "phot_g_mean_mag",
-    "sy_bprp": "bp_rp",
+    "sy_gaiamag": "phot_g_mean_mag",  # <-- this is the one you actually have
+    "sy_gmag": "phot_g_mean_mag",     # optional fallback
 }
+
 
 
 
@@ -71,6 +72,10 @@ def main() -> None:
             df[out_col] = pd.to_numeric(df[raw_col], errors="coerce")
             if out_col not in keep_cols:
                 keep_cols.append(out_col)
+    print("raw optional cols present:", [c for c in OPTIONAL_RENAMES if c in df.columns])
+    print("keep_cols:", keep_cols)
+    print("output:", args.output)
+
 
     # If bp_rp is missing but BP/RP mags exist, derive it.
     if "bp_rp" not in df.columns and {"sy_bpmag", "sy_rpmag"}.issubset(df.columns):
@@ -91,3 +96,11 @@ def main() -> None:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
             df[col] = df[col].fillna(df[col].median())
+  
+    df = df.dropna()
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    df.to_csv(args.output, index=False)
+    print(f"Wrote {args.output} with cols={df.shape[1]} rows={len(df)}")
+
+if __name__ == "__main__":
+    main()
