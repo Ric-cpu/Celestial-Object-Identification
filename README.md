@@ -20,11 +20,11 @@ Explore the different components of this project:
 Located in `data/` - Contains sample datasets and cleaned versions of astronomical objects.
 
 ### Contents:
-- **Asteroids**: `asteroids_sample.csv`
-- **Comets**: `comets_clean.csv`, `comets_sample.csv`
-- **Exoplanets**: `exoplanets_clean.csv`, `exoplanets_sample.csv`
-- **Quasars**: `quasars_gaia_sample.csv`
-- **Stars**: `stars_gaia_sample.csv`
+- **Asteroids**: `asteroids_clean.csv`
+- **Comets**: `comets_clean.csv`
+- **Exoplanets**: `exoplanets_clean.csv`, 
+- **Quasars**: `quasars_gaia_clean.csv`
+- **Stars**: `stars_gaia_clean.csv`
 - **Temporary Files**: `tmp/` directory for VOTable data
 
 :memo: These datasets are used for training and testing the classification models.
@@ -48,12 +48,7 @@ Located in `notebooks/` - Interactive Jupyter notebooks for data exploration and
 
 ### Subdirectories:
 
-#### **archive_sample_binary** - Binary classification experiments (sample data)
-- `06_quasars.ipynb` - Quasar classification
-- `07_Stars_Exoplanets_pos.ipynb` - Stars vs Exoplanets classification
-- `08_Stars_vs_Quasars.ipynb` - Binary classification between stars and quasars
-- `09_asteroids_vs_comets.ipynb` - Asteroids vs Comets classification
-- `trim_exoplanets.ipynb` - Exoplanet data trimming and preprocessing
+
 
 #### **full_binary** - Binary classification experiments (full dataset)
 - `10_full_data_profile.ipynb` - Complete data profiling
@@ -94,8 +89,7 @@ Located in `src/Scripts/` - Specialized data cleaning and preparation scripts.
 - `enrich_exo_csv_file.py` - Enrich exoplanet CSV with additional data
 - `enrich_exo_with_gaia.py` - Integrate GAIA data with exoplanets
 
-#### **[sample_clean/](src/Scripts/sample_clean/)** - Sample dataset cleaning scripts
-- `clean_comets.py` - Clean and process comet samples
+
 
 ---
 
@@ -103,7 +97,6 @@ Located in `src/Scripts/` - Specialized data cleaning and preparation scripts.
 
 Main entry point scripts for dataset management and preprocessing:
 
-- **[Dataset_reductionforcommit.py](Dataset_reductionforcommit.py)** - Reduce dataset size for version control
 - **[download_quasars.py](download_quasars.py)** - Download quasar data from external sources
 - **[split_small_bodies.py](split_small_bodies.py)** - Split small bodies dataset (asteroids, comets)
 
