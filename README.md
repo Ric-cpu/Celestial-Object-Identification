@@ -1,21 +1,21 @@
-# ::rocket:: Celestial Object Identification
+# :rocket: Celestial Object Identification
 
 Celestial Object Identification is a project focused on applying artificial intelligence and computer vision techniques to detect and classify astronomical objects such as stars, planets, asteroids, comets, exoplanets, and quasars. The system leverages machine learning and deep learning models trained on astronomical datasets to automate the identification process.
 
 ---
 
-## ::file_folder:: Project Structure
+## :file_folder: Project Structure
 
 Explore the different components of this project:
 
-- **[::database:: Data Directory](#-data-directory)** - Astronomical datasets and samples
-- **[::books:: Documentation](#-documentation-directory)** - Project vision, ethics, and risk planning
-- **[::notebook:: Notebooks](#-notebooks-directory)** - Jupyter notebooks for analysis and experimentation
-- **[::gear:: Source Code](#-src-directory)** - Core Python modules and scripts
+- **[:database: Data Directory](#-data-directory)** - Astronomical datasets and samples
+- **[:books: Documentation](#-documentation-directory)** - Project vision, ethics, and risk planning
+- **[:notebook: Notebooks](#-notebooks-directory)** - Jupyter notebooks for analysis and experimentation
+- **[:gear: Source Code](#-src-directory)** - Core Python modules and scripts
 
 ---
 
-## ::database:: Data Directory
+## :database: Data Directory
 
 Located in `data/` - Contains sample datasets and cleaned versions of astronomical objects.
 
@@ -27,11 +27,11 @@ Located in `data/` - Contains sample datasets and cleaned versions of astronomic
 - **Stars**: `stars_gaia_sample.csv`
 - **Temporary Files**: `tmp/` directory for VOTable data
 
-::memo:: These datasets are used for training and testing the classification models.
+:memo: These datasets are used for training and testing the classification models.
 
 ---
 
-## ::books:: Documentation Directory
+## :books: Documentation Directory
 
 Located in `docs/` - Contains comprehensive documentation about the project.
 
@@ -42,7 +42,7 @@ Located in `docs/` - Contains comprehensive documentation about the project.
 
 ---
 
-## ::notebook:: Notebooks Directory
+## :notebook: Notebooks Directory
 
 Located in `notebooks/` - Interactive Jupyter notebooks for data exploration and model development.
 
@@ -67,7 +67,7 @@ Located in `notebooks/` - Interactive Jupyter notebooks for data exploration and
 
 ---
 
-## ::gear:: Src Directory
+## :gear: Src Directory
 
 Located in `src/` - Core Python modules and utilities for the project.
 
@@ -99,7 +99,7 @@ Located in `src/Scripts/` - Specialized data cleaning and preparation scripts.
 
 ---
 
-## ::hammer:: Root-Level Scripts
+## :hammer: Root-Level Scripts
 
 Main entry point scripts for dataset management and preprocessing:
 
@@ -109,7 +109,7 @@ Main entry point scripts for dataset management and preprocessing:
 
 ---
 
-## ::rocket:: Quick Start
+## :rocket: Quick Start
 
 ### Installation
 
@@ -144,17 +144,17 @@ from src.ml_models import train_model
 
 ---
 
-## ::bulb:: Key Features
+## :bulb: Key Features
 
-- ::star:: Multi-class classification of celestial objects
-- ::chart_with_upwards_trend:: Comprehensive data preprocessing pipelines
-- ::test_tube:: Extensive notebook-based experimentation
-- ::mag:: GAIA data integration for enhanced star classification
-- ::floppy_disk:: Sample and full dataset variants for flexible testing
+- :star: Multi-class classification of celestial objects
+- :chart_with_upwards_trend: Comprehensive data preprocessing pipelines
+- :test_tube: Extensive notebook-based experimentation
+- :mag: GAIA data integration for enhanced star classification
+- :floppy_disk: Sample and full dataset variants for flexible testing
 
 ---
 
-## ::memo:: Dependencies
+## :memo: Dependencies
 
 Core dependencies (see `requirements.txt`):
 - `numpy` - Numerical computing
@@ -167,10 +167,10 @@ Core dependencies (see `requirements.txt`):
 
 ---
 
-## ::page_with_curl:: License & Attribution
+## :page_with_curl: License & Attribution
 
 This project uses astronomical data from various sources including GAIA, exoplanet surveys, and asteroid/comet catalogs.
 
 ---
 
-::arrow_right:: **Start exploring**: Head to the [notebooks/](notebooks/) directory to see the analysis in action!
+:arrow_right: **Start exploring**: Head to the [notebooks/](notebooks/) directory to see the analysis in action!
