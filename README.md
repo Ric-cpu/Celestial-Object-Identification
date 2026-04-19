@@ -64,8 +64,8 @@ Cleaning scripts are located under `src/Scripts/`.
 ### Multiclass (Main)
 - `notebooks/multiclass_expetiment/multiclass_stars_exo_quasars.ipynb`
   - Classes: stars vs exoplanet hosts vs quasars
-  - Models: Dummy baseline, Random Forest, MLP, kNN, Decision Tree
-  - Extensions: Logistic Regression, SVM (linear / RBF / polynomial)
+  - Models: Dummy baseline, Logistic Regression, Random Forest, MLP
+  - Extensions:  kNN, Decision Tree, SVM (linear / RBF / polynomial)
   - Additional comparison: `MLP + StandardScaler` vs `MLP + MinMaxScaler`
   - Outputs: metric plots, model comparison plots, confusion matrix (kNN)
 
