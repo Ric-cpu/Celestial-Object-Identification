@@ -12,7 +12,7 @@ Celestial Object Identification is a machine-learning project for classifying as
 - `data/full/` full datasets and cleaned full files (large files may be gitignored depending on setup)
 - `notebooks/` exploratory analysis and experiment notebooks
 - `src/` reusable Python modules and data cleaning scripts
-- `Main_plots/` and `Main_plts/` saved figures from experiments (both exist due notebook iterations)
+- `Main_plots/` and `Main_plts/` saved figures from experiments (both exist due to notebook iterations)
 - `docs/` report sections and project documentation
 
 ## Datasets Used (High Level)
@@ -78,18 +78,18 @@ Cleaning scripts are located under `src/Scripts/`.
 ### Archived Sample Binary Notebooks
 - `notebooks/archive_sample_binary/` (early/prototype experiments on sample-sized data)
 
-## Evaluation Protocol (Multiclass)
+Evaluation Protocol (Multiclass)
 - Balanced sampling across the three classes
-- Dataset sizes: `10k`, `20k`, `37.8k` (balanced total samples)
-- `80%` train+validation / `20%` held-out test split (stratified)
-- `StratifiedKFold` cross-validation on train+validation (`k=5`)
-- Metrics:
-  - Accuracy
-  - Macro Precision
-  - Macro Recall
-  - Macro F1
-- Confusion matrix and classification report for the best-performing model (Random Forest)
-- Overfitting checks via CV vs test performance comparison
+- Dataset sizes: 9,999, 19,998, and 37,800 balanced total samples
+- 80% train+validation / 20% held-out test split (stratified)
+- StratifiedKFold cross-validation on train+validation (k=5)
+- Metrics: accuracy, macro precision, macro recall, macro F1
+- Confusion matrix and classification report for the best held-out test model: kNN + MinMaxScaler
+- CV vs test comparison used to assess generalisation
+
+##Main Multiclass Result
+On the largest balanced subset (37,800 samples), kNN + MinMaxScaler achieved the best held-out test macro F1 (approximately 0.9997). Random Forest achieved the strongest cross-validation macro F1 (approximately 0.9993) and remained the most stable core model across dataset sizes.
+
 
 ## Feature Scaling Strategy
 - **Scaled (StandardScaler):** Logistic Regression, MLP, SVMs
