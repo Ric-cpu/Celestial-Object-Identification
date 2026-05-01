@@ -65,7 +65,7 @@ Cleaning scripts are located under `src/Scripts/`.
 - `notebooks/multiclass_expetiment/multiclass_stars_exo_quasars.ipynb`
   - Classes: stars vs exoplanet hosts vs quasars
   - Models: Dummy baseline, Logistic Regression, Random Forest, MLP
-  - Extensions:  kNN, Decision Tree, SVM (linear / RBF / polynomial)
+  - Extensions: kNN, Decision Tree, SVM (linear / RBF / polynomial)
   - Additional comparison: `MLP + StandardScaler` vs `MLP + MinMaxScaler`
   - Outputs: metric plots, model comparison plots, confusion matrix (kNN)
 
@@ -78,18 +78,17 @@ Cleaning scripts are located under `src/Scripts/`.
 ### Archived Sample Binary Notebooks
 - `notebooks/archive_sample_binary/` (early/prototype experiments on sample-sized data)
 
-Evaluation Protocol (Multiclass)
+## Evaluation Protocol (Multiclass)
 - Balanced sampling across the three classes
-- Dataset sizes: 9,999, 19,998, and 37,800 balanced total samples
-- 80% train+validation / 20% held-out test split (stratified)
-- StratifiedKFold cross-validation on train+validation (k=5)
+- Dataset sizes: `9,999`, `19,998`, and `37,800` balanced total samples
+- `80%` train+validation / `20%` held-out test split (stratified)
+- `StratifiedKFold` cross-validation on train+validation (`k=5`)
 - Metrics: accuracy, macro precision, macro recall, macro F1
-- Confusion matrix and classification report for the best held-out test model: kNN + MinMaxScaler
+- Confusion matrix and classification report for the best held-out test model: `kNN + MinMaxScaler`
 - CV vs test comparison used to assess generalisation
 
-##Main Multiclass Result
-On the largest balanced subset (37,800 samples), kNN + MinMaxScaler achieved the best held-out test macro F1 (approximately 0.9997). Random Forest achieved the strongest cross-validation macro F1 (approximately 0.9993) and remained the most stable core model across dataset sizes.
-
+## Main Multiclass Result
+On the largest balanced subset (`37,800` samples), `kNN + MinMaxScaler` achieved the best held-out test macro F1 (approximately `0.9997`). Random Forest achieved the strongest cross-validation macro F1 (approximately `0.9993`) and remained the most stable core model across dataset sizes.
 
 ## Feature Scaling Strategy
 - **Scaled (StandardScaler):** Logistic Regression, MLP, SVMs
@@ -117,6 +116,7 @@ On the largest balanced subset (37,800 samples), kNN + MinMaxScaler achieved the
 
 ## Quick Start
 1. Create and activate a virtual environment
+
 ```bash
 python -m venv .venv
 # Windows (PowerShell)
@@ -124,16 +124,19 @@ python -m venv .venv
 ```
 
 2. Install dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
 3. Run Jupyter
+
 ```bash
 jupyter notebook
 ```
 
 4. Open the main multiclass notebook
+
 - `notebooks/multiclass_expetiment/multiclass_stars_exo_quasars.ipynb`
 
 ## Plot Outputs (Current)
