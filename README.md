@@ -151,7 +151,11 @@ Saved plots are currently split across two folders because of notebook iteration
 - Gaia (via `astroquery` and Gaia catalog joins)
 - Gaia-derived stars/quasars CSV datasets used in the project
 
-## Notes
-- Full datasets may be excluded from Git depending on file size and local setup.
-- If needed, add a shared storage link (Google Drive / OneDrive) for reproducibility.
-- The multiclass notebook is the most up-to-date end-to-end experiment workflow.
+## Full Dataset Access
+
+[Google Drive Dataset folder](https://drive.google.com/drive/folders/1KzUeyzo8EfS3oUPTFutQ3V6PKyGaOrc8?usp=sharing)
+
+The main notebook expectes the full files under:
+data/full/
+
+
