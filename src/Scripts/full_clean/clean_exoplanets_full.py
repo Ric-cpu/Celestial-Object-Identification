@@ -26,8 +26,8 @@ REQUIRED_COLS = [
 OPTIONAL_RENAMES = {
     "sy_pmra": "pmra",
     "sy_pmdec": "pmdec",
-    "sy_gaiamag": "phot_g_mean_mag",  # <-- this is the one you actually have
-    "sy_gmag": "phot_g_mean_mag",     # optional fallback
+    "sy_gaiamag": "phot_g_mean_mag", 
+    "sy_gmag": "phot_g_mean_mag",     
 }
 
 
